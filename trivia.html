@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trivia Time</title>
+		<link type="text/css" rel="stylesheet" href="style.css"></link>
+		<script src="loadXMLDoc.js"></script>
+		<script>
+			function Question(text,options,answer) {
+				this.text = text;
+				this.options = options;
+				this.answer = answer;
+			}
+			function Team(name) {
+				this.name = name;
+				this.points = 0;
+			}
+			
+			/**
+			 * Randomize array element order in-place.
+			 * Using Fisher-Yates shuffle algorithm.
+			 */
+			function shuffleArray(array) {
+				for (var i = array.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+				return array;
+			}
+			
+			function addTeam() {
+				var name = prompt("Enter the team name");
+				var team = new Team(name);
+				teamArr.push(team);
+
+				//make row for team and add to end
+				var table = document.getElementById("teams");
+				var tr = document.createElement("tr");
+				tr.className = "team";
+				var td = document.createElement("td");
+				td.className = "name";
+				var text = document.createTextNode(team.name);
+				td.appendChild(text);
+				
+				tr.appendChild(td);
+				td = document.createElement("td");
+				td.className = "pts";
+				text = document.createTextNode(team.points);
+				td.appendChild(text);
+				
+				tr.appendChild(td);
+				table.appendChild(tr);
+				
+				//add increment and decrement
+				var dec = document.createElement("a");
+				dec.href = "#";
+				dec.team = team.name;
+				dec.addEventListener("click", function(e) 
+					{
+						chgPts(e.target.team,-1);
+					});
+				var text = document.createTextNode("<");
+				dec.appendChild(text);
+				
+				var inc = document.createElement("a");
+				inc.href = "#";
+				inc.team = team.name;
+				inc.addEventListener("click", function(e) 
+					{
+						chgPts(e.target.team,1);
+					});
+				text = document.createTextNode(">");
+				inc.appendChild(text);
+				
+				var pts = document.getElementsByClassName("pts")[document.getElementsByClassName("pts").length - 1];
+				pts.insertBefore(dec,pts.firstChild);
+				
+				pts.appendChild(inc);
+				
+			}
+			
+			function chgPts (team,pts) {
+				for(var i=0;i<teamArr.length;i++){
+					if(teamArr[i].name === team){
+						teamArr[i].points += pts;
+						break;
+					}
+				}
+				var table = document.getElementById("teams");
+				var teams = table.getElementsByClassName("team");
+				for(var j=0; j<teams.length;j++){
+					if(teams[j].firstChild.firstChild.nodeValue === team) {
+						teams[j].childNodes[1].childNodes[1].nodeValue = parseInt(teams[j].childNodes[1].childNodes[1].nodeValue) + pts;
+						break;
+					}
+				}
+			}
+			
+			function showAnswer(){
+				document.getElementById("answer").style.display = "block";
+			}
+			
+			function reset() {
+				init();
+				nextQuestion();
+			}
+			
+			function init(){
+				questionsArr = [];
+				teamArr = [];
+				
+				for(var i=0;i<questions.length;i++) {
+					var q = questions[i].getElementsByTagName("text")[0].childNodes[0].nodeValue;
+					var o = questions[i].getElementsByTagName("option");
+					var options = [];
+					for(var j=0;j<o.length;j++) {
+						var option = o[j].childNodes[0].nodeValue;
+						options.push(option);
+					}
+					
+					var answer = questions[i].getElementsByTagName("answer")[0].childNodes[0].nodeValue;
+					var question = new Question(q,options,answer);
+
+					questionsArr.push(question);
+				}
+				shuffleArray(questionsArr);
+			}
+			
+			function nextQuestion() {
+				var container = document.getElementById("question");
+				container.getElementsByTagName("ol")[0].innerHTML = "";
+				if(questionsArr.length != 0){
+					var question = questionsArr.pop();
+					container.getElementsByTagName("h2")[0].innerHTML = question.text;
+					
+					//options
+					
+					for(var i=0;i<question.options.length;i++){
+						var li = document.createElement("li");
+						var t = document.createTextNode(question.options[i]);
+						li.appendChild(t);
+						container.getElementsByTagName("ol")[0].appendChild(li);
+					}
+					
+					//answer
+					document.getElementById("answer").style.display = "none";
+					document.getElementById("answer").innerHTML = question.answer;
+				}
+				else {
+					container.getElementsByTagName("h2")[0].innerHTML = "No more questions";
+					document.getElementById("answer").innerHTML = "";
+				}
+			}
+			
+			var xmlDoc = loadXMLDoc("questions.xml");
+			var questions = xmlDoc.getElementsByTagName("question");
+			init();
+		</script>
+	</head>
+	<body>
+		<section id="stats">
+			<h2>Leaderboard</h2>
+			<table id="teams">
+				<tr><th>Team</th><th>Points</th></tr>
+				<!--<tr><td>Amazing</td><td>3</td></tr>-->
+			</table>
+			<input type="button" value="Add Team" onclick='addTeam();'></input>
+		</section>
+		<section id="question">
+			<h2>Where was Mozart born?</h2>
+			<ol>
+				<li>Germany</li>
+				<li>Austria</li>
+				<li>England</li>
+			</ol>		
+			<div id="answer" style="display:none;">Germany</div>
+			<input type="button" value="Show Answer" onclick='showAnswer();'></input>
+			<input type="button" value="Next Question" onclick='nextQuestion();'></input>
+			<br \>
+			<input type="button" value="Start Over" onclick='reset();'></input>
+		</section>
+		<script>nextQuestion();</script>
+	</body>
+</html>
+	

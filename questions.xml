@@ -1,0 +1,182 @@
+<questions>
+	<question>
+		<text>Where was Beethoven born?</text>
+		<options>
+			<option>Germany</option>
+			<option>Austria</option>
+			<option>England</option>
+			<option>Switzerland</option>
+		</options>
+		<answer>Germany</answer>
+	</question>
+	<question>
+		<text>When did the First World War start?</text>
+		<options>
+			<option>1912</option>
+			<option>1919</option>
+			<option>1920</option>
+			<option>1914</option>
+		</options>
+		<answer>1914</answer>
+	</question>
+	<question>
+		<text>What is the smallest country in the World?</text>
+		<options>
+			<option>Liechtenstein</option>
+			<option>Vatican City</option>
+			<option>Monaco</option>
+			<option>Maldives</option>
+		</options>
+		<answer>Vatican City</answer>
+	</question>
+	<question>
+			<text>In what year was the Roman Republic created?</text>
+			<options>
+				<option>808 BC</option>
+				<option>632 BC</option>
+				<option>509 BC</option>
+				<option>127 AD</option>
+			</options>
+			<answer>509 BC</answer>
+	</question>
+	<question>
+		<text>Who lived at 221B, Baker Street, London?</text>
+		<options>
+			<option>William Shakespeare</option>
+			<option>Winston Churchill</option>
+			<option>Sherlock Holmes</option>
+			<option>The Queen</option>
+		</options>
+		<answer>Sherlock Holmes</answer>
+	</question>
+	<question>
+		<text>When was Elvis' first ever concert?</text>
+		<options>
+			<option>1930</option>
+			<option>1954</option>
+			<option>1957</option>
+			<option>1960</option>
+		</options>
+		<answer>1954</answer>
+	</question>
+	<question>
+		<text>What country gave Florida to the USA in 1891?</text>
+		<options>
+			<option>England</option>
+			<option>Portugal</option>
+			<option>Spain</option>
+			<option>France</option>
+		</options>
+		<answer>Spain</answer>
+	</question>
+	<question>
+		<text>What did the crocodile swallow in Peter Pan?</text>
+		<options>
+			<option>Alarm Clock</option>
+			<option>Banana</option>
+			<option>Peter Pan</option>
+			<option>Log</option>
+		</options>
+		<answer>Alarm Clock</answer>
+	</question>
+	<question>
+		<text>What year did Christopher Columbus go to America?</text>
+		<options>
+			<option>1452</option>
+			<option>1592</option>
+			<option>1492</option>
+			<option>1402</option>
+		</options>
+		<answer>1492</answer>
+	</question>
+	<question>
+		<text>Who was the director of the film "Psycho"?</text>
+		<options>
+			<option>Steven Spielberg</option>
+			<option>Martin Scorsese</option>
+			<option>Alfred Hitchcock</option>
+			<option>Stanley Kubrick</option>
+		</options>
+		<answer>Alfred Hitchcock</answer>
+	</question>
+	<question>
+		<text>Who wrote the James Bond books?</text>
+		<options>
+			<option>Gillian Flynn</option>
+			<option>Robert Dugoni</option>
+			<option>Anthony Burgess</option>
+			<option>Ian Fleming</option>
+		</options>
+		<answer>Ian Fleming</answer>
+	</question>
+	<question>
+		<text>When did the first man go into space?</text>
+		<options>
+			<option>1969</option>
+			<option>1961</option>
+			<option>1970</option>
+			<option>1965</option>
+		</options>
+		<answer>1961</answer>
+	</question>
+	<question>
+		<text>In which city is Hollywood?</text>
+		<options>
+			<option>Las Vegas</option>
+			<option>San Francisco</option>
+			<option>Hollywood City</option>
+			<option>Los Angeles</option>
+		</options>
+		<answer>Los Angeles</answer>
+	</question>
+	<question>
+		<text>Which is the largest ocean?</text>
+		<options>
+			<option>Pacific</option>
+			<option>Atlantic</option>
+			<option>Indian</option>
+			<option>Arctic</option>
+		</options>
+		<answer>Pacific</answer>
+	</question>
+	<question>
+		<text>What do the opposite sides of a die add up to?</text>
+		<options>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+		</options>
+		<answer>7</answer>
+	</question>
+	<question>
+		<text>What is the common name of Siddartha Gautama?</text>
+		<options>
+			<option>Buddha</option>
+			<option>Dalai Lama</option>
+			<option>Gandhi</option>
+			<option>Confucius</option>
+		</options>
+		<answer>Buddha</answer>
+	</question>
+	<question>
+		<text>How many eyes are there in a deck of 52 cards?</text>
+		<options>
+			<option>20</option>
+			<option>32</option>
+			<option>42</option>
+			<option>40</option>
+		</options>
+		<answer>42</answer>
+	</question>
+	<question>
+		<text>Which planet is closest to the Sun?</text>
+		<options>
+			<option>Mars</option>
+			<option>Venus</option>
+			<option>Earth</option>
+			<option>Mercury</option>
+		</options>
+		<answer>Mercury</answer>
+	</question>
+</questions>
